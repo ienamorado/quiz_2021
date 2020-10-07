@@ -1,3 +1,5 @@
+"use strict";
+
 const {DataTypes, Model} = require('sequelize');
 const sequelize = require('./sequelize');
 const crypt = require('../helpers/crypt');
@@ -41,6 +43,10 @@ User.init({
             type: DataTypes.STRING,
             unique: true,
             validate: {notEmpty: {msg: "Username must not be empty."}}
+        },
+        token: {
+            type: DataTypes.STRING,
+            validate: {notEmpty: {msg: "Token must not be empty."}}
         },
         password: {
             type: DataTypes.STRING,
